@@ -2,9 +2,8 @@ package controller
 
 import (
 	"net/http"
-	"prototype2/api/service"
-	"prototype2/domain"
-
+	"api/service"
+	"domain"
 	"github.com/getsentry/sentry-go"
 	"github.com/gin-gonic/gin"
 )
