@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+.button {
+        background-color: #1c87c9;
+        border: none;
+        color: white;
+        padding: 20px 34px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+</style>
+<head><base href="" /></head>
+<body>
+
+<h2>Notification List</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Detected Link</th>
+    <th>Solve Action</th>
+  </tr>
+  {{range .}}
+  <tr>
+    <td>{{.Notifications.Title}}</td>
+    <td>{{.Notifications.Description}}</td>
+    <td><a href="/{{.DetectedLink}}" class="button" target="_blank" rel="noopener noreferrer">{{.DetectedLink}}</a></td>
+    <!-- <td><a href="/AdminOnly/solve-notification" class="button">Click here if it's solved</a></td> -->
+    <td>
+        <form action="/AdminOnly/solve-notification" method="post" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" name="NotifID" value={{.Notifications.ID}}>
+            <button>Click here if it's solved</button>
+        </form>
+    </td>
+</tr>
+  {{end}}
+</table>
+
+</body>
+</html>
+

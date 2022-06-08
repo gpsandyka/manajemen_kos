@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Makkos Dummy Admin Ready Up Room Page</title>
+
+<!-- CSS -->
+<style>
+.myForm {
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size: 0.8em;
+padding: 1em;
+border: 1px solid #ccc;
+border-radius: 3px;
+}
+
+.myForm * {
+box-sizing: border-box;
+}
+
+.myForm label {
+font-size: 0.9em;
+}
+
+.myForm .audioOnly {
+position: absolute;
+width: 1px;
+height: 1px;
+padding: 0;
+margin: -1px;
+overflow: hidden;
+clip: rect(0, 0, 0, 0);
+border: 0;
+}
+
+.myForm input {
+border: 1px solid #ccc;
+border-radius: 3px;
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size: 0.9em;
+padding: 0.5em;
+}
+
+.myForm input[type="email"],
+.myForm input[type="password"] {
+width: 12em;
+}
+
+.myForm button {
+padding: 0.7em;
+border-radius: 0.5em;
+background: #eee;
+border: none;
+font-weight: bold;
+margin-left: 1.5em;
+}
+
+.myForm button:hover {
+background: #ccc;
+cursor: pointer;
+}
+</style>
+
+</head>
+<body>
+
+    <h2>Not Ready Room List</h2>
+
+    <table style="width:100%">
+      <tr>
+        <th>Room Number</th>
+        <th>Check Out Time</th>
+        <th>Ready Action</th>
+      </tr>
+      {{range .}}
+      <tr>
+        <td>{{.ID}}</td>
+        <td>{{.EndOccupiedDate}}</td>
+        <!-- <td><a href="/AdminOnly/solve-notification" class="button">Click here if it's solved</a></td> -->
+        <td>
+            <form action="/AdminOnly/ready-up-room" method="post" enctype="application/x-www-form-urlencoded">
+                <input type="hidden" name="RoomID" value={{.ID}}>
+                <button>Click here if it's already prepared</button>
+            </form>
+        </td>
+    </tr>
+      {{end}}
+    </table>
+    
+</body>
+</html>

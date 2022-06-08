@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Makkos Dummy Admin Check Out Page</title>
+
+<!-- CSS -->
+<style>
+.myForm {
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size: 0.8em;
+padding: 1em;
+border: 1px solid #ccc;
+border-radius: 3px;
+}
+
+.myForm * {
+box-sizing: border-box;
+}
+
+.myForm label {
+font-size: 0.9em;
+}
+
+.myForm .audioOnly {
+position: absolute;
+width: 1px;
+height: 1px;
+padding: 0;
+margin: -1px;
+overflow: hidden;
+clip: rect(0, 0, 0, 0);
+border: 0;
+}
+
+.myForm input {
+border: 1px solid #ccc;
+border-radius: 3px;
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size: 0.9em;
+padding: 0.5em;
+}
+
+.myForm input[type="email"],
+.myForm input[type="password"] {
+width: 12em;
+}
+
+.myForm button {
+padding: 0.7em;
+border-radius: 0.5em;
+background: #eee;
+border: none;
+font-weight: bold;
+margin-left: 1.5em;
+}
+
+.myForm button:hover {
+background: #ccc;
+cursor: pointer;
+}
+</style>
+
+</head>
+<body>
+
+    <h1>Ketik ID Kamar yang akan Check Out</h1><br>
+
+<form class="myForm" method="get" enctype="application/x-www-form-urlencoded" action="/AdminOnly/check-out-room/confirmation">
+
+    <label class="audioOnly" for="RoomID">RoomID</label> 
+    <input type="text" name="RoomID" required placeholder="RoomID">
+
+<button>Konfirmasi</button>
+</form>
+
+</body>
+</html>

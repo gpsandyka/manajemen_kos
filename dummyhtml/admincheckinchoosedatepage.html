@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Tanggal Check Out</h1>
+
+<form class="myForm" method="get" enctype="application/x-www-form-urlencoded" action="/AdminOnly/check-in-room/room-pick">
+    
+    <label for="EndDate">Check Out Date:</label>
+    <input type="date" id="EndDate" name="EndDate">
+  
+    <br>
+    <input type="checkbox" id="PermanentStay" name="PermanentStay" value="True">
+    <label for="PermanentStay">Ingin menjadi penghuni tetap saja, bayar bulanan</label><br>
+
+    <button>Konfirmasi</button>
+</form>    
+<p><strong>Note:</strong> type="date" is not supported in Internet Explorer 11 or prior Safari 14.1.</p>
+</body>
+</html>

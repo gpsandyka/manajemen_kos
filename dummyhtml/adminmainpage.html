@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Makkos Admin Main Page</title>
+    <style>
+      .button {
+        background-color: #1c87c9;
+        border: none;
+        color: white;
+        padding: 20px 34px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome {{.Name}}! You have {{.NotifNumber}} notification</h1><br>
+    <a href="/AdminOnly/solve-notification" class="button">Check {{.NotifNumber}} Notification</a><br>
+    <a href="/AdminOnly/check-in-room" class="button">Check In Room</a><br>
+    <a href="/AdminOnly/check-out-room" class="button">Check Out Room</a><br>
+    <a href="/AdminOnly/ready-up-room" class="button">Ready Up Room</a><br>
+    <a href="/AdminOnly/information" class="button">Informasi Detail</a><br>
+  </body>
+</html>

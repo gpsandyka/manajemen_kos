@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Makkos Check In Information</title>
+
+<!-- CSS -->
+<style>
+.myForm {
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size: 0.8em;
+padding: 1em;
+border: 1px solid #ccc;
+border-radius: 3px;
+}
+
+.myForm * {
+box-sizing: border-box;
+}
+
+.myForm label {
+font-size: 0.9em;
+}
+
+.myForm .audioOnly {
+position: absolute;
+width: 1px;
+height: 1px;
+padding: 0;
+margin: -1px;
+overflow: hidden;
+clip: rect(0, 0, 0, 0);
+border: 0;
+}
+
+.myForm input {
+border: 1px solid #ccc;
+border-radius: 3px;
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size: 0.9em;
+padding: 0.5em;
+}
+
+.myForm input[type="email"],
+.myForm input[type="password"] {
+width: 12em;
+}
+
+.myForm button {
+padding: 0.7em;
+border-radius: 0.5em;
+background: #eee;
+border: none;
+font-weight: bold;
+margin-left: 1.5em;
+}
+
+.myForm button:hover {
+background: #ccc;
+cursor: pointer;
+}
+</style>
+
+</head>
+<body>
+
+    <h1>Makkos Gather Information Page</h1><br>
+
+<form class="myForm" method="post" enctype="application/x-www-form-urlencoded" action="/AdminOnly/check-in-room/fill-in-information">
+
+    {{if .PermanentStay}}
+    <label class="audioOnly" for="username">Username</label> 
+    <input type="text" name="username" required placeholder="Username">
+    <br>
+    <label class="audioOnly" for="password">Password</label> 
+    <input type="text" name="password" required placeholder="Password">
+    <br>
+    {{end}}
+    +62
+    <label class="audioOnly" for="PhoneNumber">Phone Number</label> 
+    <input type="text" name="PhoneNumber" required placeholder="PhoneNumber"> 
+    (Tidak perlu menggunakan 0 atau +62 di depan, contoh 81012345678)
+    <br>
+
+    1. Minta foto ktp<br>
+    2. Berikan Kunci Kamar {{.RoomID}}<br>
+    3. Persilahkan penghuni menuju kamarnya<br>
+    4. Isi identitas dari foto ktp tersebut<br>
+
+    <input type="hidden" name="RoomID" value={{.RoomID}}>
+    <input type="hidden" name="EndDate" value={{.EndDate}}>
+    <input type="hidden" name="PermanentStay" value={{.PermanentStay}}>
+    
+<button>Konfirmasi</button>
+</form>
+
+
+
+</body>
+</html>

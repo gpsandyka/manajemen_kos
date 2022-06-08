@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+.button {
+        background-color: #1c87c9;
+        border: none;
+        color: white;
+        padding: 20px 34px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+</style>
+<body>
+
+<h2>Available Room List</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>Room ID</th>
+    <th>Choose Action</th>
+  </tr>
+  {{range .}}
+  <tr>
+    <td>{{.Room.ID}}</td>
+    <td>
+        <form action="/AdminOnly/check-in-room/gather-information" method="get" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" name="RoomID" value={{.Room.ID}}>
+            <input type="hidden" name="EndDate" value={{.EndDate}}>
+            <input type="hidden" name="PermanentStay" value={{.PermanentStay}}>
+            <button>Click here to choose this room</button>
+        </form>
+    </td>
+</tr>
+  {{end}}
+</table>
+
+</body>
+</html>
