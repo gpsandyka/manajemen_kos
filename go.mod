@@ -1,5 +1,6 @@
 module github.com/gpsandyka/manajemen_kos
 
+// +heroku goVersion go1.18
 go 1.18
 
 require (
