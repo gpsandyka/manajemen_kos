@@ -20,3 +20,10 @@ INSERT INTO admins (id, admin_name, username, "password", created_at, updated_at
     VALUES 
     (3, 'Miyuki', 'Shirogane', '$2a$10$A7vS0z5wjwGwfULnkTeQSOn6m6Sd.B64ZLNSSKl3UgD8HwDRdRHm2', null, null, null), /*Password hashed. "kaguyadaisuki"*/
     (4, 'Kaguya', 'Shinomiya', '$2a$10$aKKHLAvBfXyn6lLfzkPRy..eUd8C5kA7M2zqs4qarTOKkkSK8cBu.', null, null, null); /*Password hashed. "miyukidaisuki"*/
+    
+INSERT INTO notifications
+(created_at, updated_at, deleted_at, id, title, description)
+VALUES('2022-05-29 16:20:14.939', '2022-05-29 16:20:14.939', NULL, 2, 'First Notification', 'Yeaaaaayyy first notification! Keep the good work!');
+INSERT INTO notifications
+(created_at, updated_at, deleted_at, id, title, description)
+VALUES('2022-05-29 16:19:00.913', '2022-05-29 16:19:48.231', '2022-06-03 15:42:51.318', 1, 'First and first notification!', 'Yeaaaaayyy first notification! Keep the good work!');
