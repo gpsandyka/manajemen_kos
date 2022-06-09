@@ -103,7 +103,7 @@ func RunServer(u UserController, port string) {
 	//For testing purpose only
 
 	srv = &http.Server{
-		// Addr: "localhost:8080", <<<< Localhost testing
+		// Addr: "localhost:8080", //<<<< Localhost testing
 		Addr: ":" + port,
 		// Good practice to set timeouts to avoid Slowloris attacks.
 		WriteTimeout: time.Second * 15,
