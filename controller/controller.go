@@ -60,8 +60,8 @@ type UserController interface {
 
 	LoginAdmin(w http.ResponseWriter, r *http.Request)
 	LoginResident(w http.ResponseWriter, r *http.Request)
-	// LoginAdminByJSON(w http.ResponseWriter, r *http.Request)
-	// LoginResidentByJSON(w http.ResponseWriter, r *http.Request)
+	LoginAdminByJSON(w http.ResponseWriter, r *http.Request)
+	LoginResidentByJSON(w http.ResponseWriter, r *http.Request)
 
 	ResidentLoginForm(w http.ResponseWriter, r *http.Request)
 	AdminLoginForm(w http.ResponseWriter, r *http.Request)
@@ -260,45 +260,45 @@ func (u *userController) LoginAdmin(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/AdminOnly", http.StatusFound)
 }
 
-// func (u *userController) LoginResidentByJSON(w http.ResponseWriter, r *http.Request) {
-// 	var credential Credential
-// 	err := decodeJSONBody(w, r, &credential)
-// 	if err != nil {
-// 		var mr *malformedRequest
-// 		if errors.As(err, &mr) {
-// 			http.Error(w, mr.msg, mr.status)
-// 		} else {
-// 			log.Println(err.Error())
-// 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
-// 		}
-// 		return
-// 	}
-// 	LoginHelper(w, r, RESIDENTS, u, &credential)
+func (u *userController) LoginResidentByJSON(w http.ResponseWriter, r *http.Request) {
+	var credential Credential
+	err := decodeJSONBody(w, r, &credential)
+	if err != nil {
+		var mr *malformedRequest
+		if errors.As(err, &mr) {
+			http.Error(w, mr.msg, mr.status)
+		} else {
+			log.Println(err.Error())
+			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+		}
+		return
+	}
+	LoginHelper(w, r, RESIDENTS, u, &credential)
 
-// 	//Do something
-// 	fmt.Fprintf(w, "Welcome %v!!", credential.Username)
+	//Do something
+	fmt.Fprintf(w, "Welcome %v!!", credential.Username)
 
-// }
+}
 
-// func (u *userController) LoginAdminByJSON(w http.ResponseWriter, r *http.Request) {
-// 	var credential Credential
-// 	err := decodeJSONBody(w, r, &credential)
-// 	if err != nil {
-// 		var mr *malformedRequest
-// 		if errors.As(err, &mr) {
-// 			http.Error(w, mr.msg, mr.status)
-// 		} else {
-// 			log.Println(err.Error())
-// 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
-// 		}
-// 		return
-// 	}
-// 	LoginHelper(w, r, ADMINS, u, &credential)
+func (u *userController) LoginAdminByJSON(w http.ResponseWriter, r *http.Request) {
+	var credential Credential
+	err := decodeJSONBody(w, r, &credential)
+	if err != nil {
+		var mr *malformedRequest
+		if errors.As(err, &mr) {
+			http.Error(w, mr.msg, mr.status)
+		} else {
+			log.Println(err.Error())
+			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+		}
+		return
+	}
+	LoginHelper(w, r, ADMINS, u, &credential)
 
-// 	//Do something
-// 	fmt.Fprintf(w, "Welcome %v!!", credential.Username)
+	//Do something
+	fmt.Fprintf(w, "Welcome %v!!", credential.Username)
 
-// }
+}
 
 //BEFORE LOG IN CONTROLLER
 func (u *userController) ResidentLoginForm(w http.ResponseWriter, r *http.Request) {

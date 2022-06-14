@@ -58,8 +58,8 @@ func NewRouter(u UserController) (r *mux.Router) {
 	//LOGIN HANDLER
 	r.HandleFunc("/admins/login", u.LoginAdmin).Methods("POST")
 	r.HandleFunc("/residents/login", u.LoginResident).Methods("POST")
-	// r.HandleFunc("/admins/loginbyjson", u.LoginAdminByJSON).Methods("POST")
-	// r.HandleFunc("/residents/loginbyjson", u.LoginResidentByJSON).Methods("POST")
+	r.HandleFunc("/admins/loginbyjson", u.LoginAdminByJSON).Methods("POST")
+	r.HandleFunc("/residents/loginbyjson", u.LoginResidentByJSON).Methods("POST")
 
 	//BEFORE LOGIN HANDLER
 	r.HandleFunc("/", u.AreYouLoggedInAsResident).Methods("GET")

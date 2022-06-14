@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"os"
 	"os/signal"
-	"time"
 
 	"github.com/gpsandyka/manajemen_kos/controller"
 	"github.com/gpsandyka/manajemen_kos/repository"
@@ -41,21 +40,6 @@ func closeCode() {
 	os.Exit(0)
 }
 
-func LeetcodeArrayto2DSlice(input string) string {
-	result := ""
-	for _, e := range input {
-		//fmt.Println(e)
-		if e == '[' {
-			result = result + "{"
-		} else if e == ']' {
-			result = result + "}"
-		} else {
-			result = result + string(e)
-		}
-	}
-	return result
-}
-
 func testingCode() {
 	db, err := repository.NewDBConnection()
 	if err != nil {
@@ -79,7 +63,7 @@ func testingCode() {
 func main() {
 	//Harus pake command "go run main.go" ya
 
-	fmt.Println(time.Now())
+	// fmt.Println(time.Now())
 
 	// testingCode()
 
@@ -88,7 +72,5 @@ func main() {
 	waitCode()
 	// fmt.Println()
 	closeCode()
-
-	// fmt.Println(LeetcodeArrayto2DSlice(`["a","ab","abc","d","cd","bcd","abcd"]`))
 
 }
